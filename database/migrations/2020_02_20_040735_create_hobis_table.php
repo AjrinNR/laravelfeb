@@ -24,7 +24,7 @@ class CreateHobisTable extends Migration
             $table->unsignedBigInteger('id_hobi');
             $table->foreign('id_mahasiswa')->references('id')
                   ->on('mahasiswas')->onDelete('cascade');
-                  $table->foreign('id_hobi')->references('id')
+            $table->foreign('id_hobi')->references('id')
                   ->on('hobis')->onDelete('cascade');
             $table->timestamps();
         });
