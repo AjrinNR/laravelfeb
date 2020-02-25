@@ -52,6 +52,18 @@ Route::get('relasi-5', function(){
         '<strong> '. $temp->nim .'</strong>
         </li>';
 });
+Route::get('beranda', function(){
+    return view('beranda');
+});Route::get('tentang', function(){
+    return view('tentang');
+});Route::get('kontak', function(){
+    return view('kontak');
+});
+Route::get('eloquent', function(){
+    return view('eloquent');
+});Route::get('lateloquent', function(){
+    return view('lateloquent');
+});
 Route::get('relasijoin', function(){
     //join laravel
     // $sql = Mahasiswa::with('wali)->get();
@@ -66,7 +78,7 @@ Route::get('eloquent', function(){
     return view('eloquent', compact('mhs'));
 });
 
-Route::get('latihaneloquent', function(){
+Route::get('lateloquent', function(){
     // $latihan = Mahasiswa::select('walis.nama as nama_wali','dosens.nama as nama_dosen','hobis.hobi')
     // ->join('walis','walis.id','=','mahasiswas.id')
     // ->join('dosens','dosens.id','=','mahasiswas.id')
@@ -74,3 +86,12 @@ Route::get('latihaneloquent', function(){
     $latihan = Mahasiswa::with('wali','dosen','hobi')->get()->take(1);
     return view('lateloquent', compact('latihan'));
 });
+
+Route::resource('dosen','DosenController');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
