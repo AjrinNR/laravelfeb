@@ -10,8 +10,7 @@
                                 {{ session('message') }}
                             </div>
                         @endif
-                        Data Dosen
-                        <a href="{{route('dosen.create')}}" class = "float-right">
+                        <a href="{{route('hobi.create')}}" class = "float-right">
                             Tambah Data
                         </a>
                     </div>
@@ -21,8 +20,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nomor</th>
-                                        <th>Nama Dosen</th>
-                                        <th>NIPD</th>
+                                        <th>Nama Hobi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -30,17 +28,16 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($dosen as $data)
+                                    @foreach ($hobi as $data)
                                         <tr>
                                             <td>{{$no++}}</td>
-                                            <td>{{$data->nama}}</td>
-                                            <td>{{$data->nipd}}</td>
+                                            <td>{{$data->hobi}}</td>
                                             <td>
-                                                <form action="{{route('dosen.destroy',$data->id)}}" method="post">
+                                                <form action="{{route('hobi.destroy',$data->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{route('dosen.show',$data -> id)}}" class="btn btn-outline-dark">Lihat</a>
-                                                    <a href="{{route('dosen.edit',$data -> id)}}" class="btn btn-outline-dark">Edit</a>
+                                                    <a href="{{route('hobi.show',$data -> id)}}" class="btn btn-outline-dark">Lihat</a>
+                                                    <a href="{{route('hobi.edit',$data -> id)}}" class="btn btn-outline-dark">Edit</a>
                                                     <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-outline-dark">Hapus</button>
                                                 </form>
                                             </td>

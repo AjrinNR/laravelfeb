@@ -11,7 +11,7 @@
                             </div>
                         @endif
                         Data Dosen
-                        <a href="{{route('dosen.create')}}" class = "float-right">
+                        <a href="{{route('mahasiswa.create')}}" class = "float-right">
                             Tambah Data
                         </a>
                     </div>
@@ -21,8 +21,9 @@
                                 <thead>
                                     <tr>
                                         <th>Nomor</th>
-                                        <th>Nama Dosen</th>
-                                        <th>NIPD</th>
+                                        <th>Nama Mahasiswa</th>
+                                        <th>NIM</th>
+                                        <th>Dosen</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -30,17 +31,18 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($dosen as $data)
+                                    @foreach ($mhs as $data)
                                         <tr>
                                             <td>{{$no++}}</td>
                                             <td>{{$data->nama}}</td>
-                                            <td>{{$data->nipd}}</td>
+                                            <td>{{$data->nim}}</td>
+                                            <td>{{$data->dosen->nama}}</td>
                                             <td>
-                                                <form action="{{route('dosen.destroy',$data->id)}}" method="post">
+                                                <form action="{{route('mahasiswa.destroy',$data->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{route('dosen.show',$data -> id)}}" class="btn btn-outline-dark">Lihat</a>
-                                                    <a href="{{route('dosen.edit',$data -> id)}}" class="btn btn-outline-dark">Edit</a>
+                                                    <a href="{{route('mahasiswa.show',$data -> id)}}" class="btn btn-outline-dark">Lihat</a>
+                                                    <a href="{{route('mahasiswa.edit',$data -> id)}}" class="btn btn-outline-dark">Edit</a>
                                                     <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-outline-dark">Hapus</button>
                                                 </form>
                                             </td>
