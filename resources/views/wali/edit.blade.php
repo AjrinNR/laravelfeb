@@ -5,26 +5,22 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        Tambah data Mahasiswa
+                        Edit data Wali
                     </div>
                     <div class="card-body ">
-                        <form action="{{route('mahasiswa.update',$mhs->id)}}" method="post">
+                        <form action="{{route('wali.update',$wali->id)}}" method="post">
                             <input type="hidden" name="_method" value="PUT">
                             @csrf
                             <div class="form-group">
-                                <label for="">Nama Mahasiswa</label>
-                                <input type="text" name="nama" value="{{$mhs->nama}}" class="form-control" required>
+                                <label for="">Nama Wali</label>
+                                <input type="text" name="nama" value="{{$wali->nama}}" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="">NIM</label>
-                                <input type="text" name="nim" value="{{$mhs->nim}}" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Dosen</label>
-                                <select name="id_dosen" class="form-control" required>
-                                    @foreach ($dosen as $data)
+                                <label for="">Mahasiswa</label>
+                                <select name="id_mahasiswa" class="form-control" required>
+                                    @foreach ($mhs as $data)
                                         <option value="{{$data->id}}"
-                                            {{$data->id == $mhs->id_dosen ? "selected" : ""}}>
+                                            {{$data->id == $wali->id_mahasiswa ? "selected" : ""}}>
                                             {{$data->nama}}
                                         </option>
                                     @endforeach

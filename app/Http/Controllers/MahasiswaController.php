@@ -8,6 +8,10 @@ use App\Dosen;
 
 class MahasiswaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $mhs = Mahasiswa::with('dosen')->get();
